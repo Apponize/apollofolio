@@ -61,12 +61,12 @@
   "main": "fetch.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saadpasta/developerFolio.git"
+    "url": "git+https://github.com/Apponize/apollofolio.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/saadpasta/developerFolio/issues"
+    "url": "https://github.com/Apponize/apollofolio/issues"
   }
 }
