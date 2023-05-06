@@ -1,6 +1,6 @@
-fs = require("fs");
 const https = require("https");
-process = require("process");
+const fs = require("fs");
+const process = require("process");
 require("dotenv").config();
 
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
@@ -13,9 +13,10 @@ const ERR = {
     "Github Username was found to be undefined. Please set all relevant environment variables.",
   requestFailed:
     "The request to GitHub didn't succeed. Check if GitHub token in your .env file is correct.",
-  requestFailedMedium:
+  requestMediumFailed:
     "The request to Medium didn't succeed. Check if Medium username in your .env file is correct."
 };
+
 if (USE_GITHUB_DATA === "true") {
   if (GITHUB_USERNAME === undefined) {
     throw new Error(ERR.noUserName);
@@ -96,9 +97,10 @@ if (USE_GITHUB_DATA === "true") {
 
 if (MEDIUM_USERNAME !== undefined) {
   console.log(`Fetching Medium blogs data for ${MEDIUM_USERNAME}`);
+  const encodedUsername = encodeURIComponent(MEDIUM_USERNAME);
   const options = {
     hostname: "api.rss2json.com",
-    path: `/v1/api.json?rss_url=https://medium.com/feed/@${MEDIUM_USERNAME}`,
+    path: `/v1/api.json?rss_url=https://medium.com/feed/@${encodedUsername}`,
     port: 443,
     method: "GET"
   };
@@ -125,6 +127,5 @@ if (MEDIUM_USERNAME !== undefined) {
   req.on("error", error => {
     throw error;
   });
-
   req.end();
 }
