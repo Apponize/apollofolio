@@ -1,6 +1,6 @@
 {
-  "homepage": "https://developerfolio.js.org/",
-  "name": "developerfolio",
+  "homepage": "https://apollofolio.js.org/",
+  "name": "apollofolio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,6 +19,9 @@
     "react-test-renderer": "^16.10.2",
     "react-twitter-embed": "3.0.3",
     "sass": "^1.32.8"
+  },
+  "engines": {
+    "node": "14.x"
   },
   "scripts": {
     "predeploy": "npm run build",
